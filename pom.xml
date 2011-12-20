@@ -1,0 +1,37 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.geojson</groupId>
+	<artifactId>pojo</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>GeoJSON POJO</name>
+
+	<properties>
+		<jackson.version>1.9.2</jackson.version>
+		<junit.version>4.10</junit.version>
+	</properties>
+
+	<developers>
+		<developer>
+			<id>mpriess</id>
+			<name>Michael Priess</name>
+			<timezone>+2</timezone>
+			<url>http://mpriess.com</url>
+		</developer>
+	</developers>
+
+	<dependencies>
+	<dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>4.10</version>
+		<scope>test</scope>
+	</dependency>
+	<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>${jackson.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>
