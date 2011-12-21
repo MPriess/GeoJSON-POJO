@@ -13,4 +13,13 @@ a feature, or a collection of features. GeoJSON supports the following geometry 
 Example
 -------
 
+Linestring
+------
+<img src="http://mpriess.com/image/linestring.png" />
+
+
+Polygon
+------
+<img src="http://mpriess.com/image/polygon.png" />
+
 See JUnit Test.
