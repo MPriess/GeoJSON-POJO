@@ -1,18 +1,16 @@
 package org.geojson.object;
 
+import java.util.List;
+
 public class FeatureCollection {
 	
-	private Feature[] features;
+	private List<Feature> features;
 	
-	public FeatureCollection(Feature[] features) {
+	public FeatureCollection(List<Feature> features) {
 		this.features = features;
 	}
 	
 	public Feature[] getFeatures() {
-		return features;
-	}
-	
-	public void setFeatures(Feature[] features) {
-		this.features = features;
+		return features.toArray(new Feature[0]);
 	}
 }
