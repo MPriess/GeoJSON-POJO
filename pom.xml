@@ -2,9 +2,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.geojson</groupId>
-	<artifactId>pojo</artifactId>
+	<artifactId>geojson-pojo</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<name>GeoJSON POJO</name>
+	<name>geojson-pojo</name>
 
 	<properties>
 		<jackson.version>1.9.2</jackson.version>
