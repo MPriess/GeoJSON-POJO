@@ -15,7 +15,7 @@ public class Feature {
 	public String getType() {
 		return type;
 	}
-	
+
 	public Geometry getGeometry() {
 		return geometry;
 	}

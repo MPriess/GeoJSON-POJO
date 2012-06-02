@@ -3,12 +3,12 @@ package org.geojson.geometry;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MultiLineString implements Geometry {
+public class MultiLineString extends Geometry {
 	
-	private String type = "MultiLineString";
 	private List<LineString> coordinates;
 	
 	public MultiLineString(List<LineString> coordinates) {
+		super(MultiLineString.class.getSimpleName());
 		this.coordinates = coordinates;
 	}
 	
@@ -21,6 +21,6 @@ public class MultiLineString implements Geometry {
 	}
 	
 	public String getType() {
-		return type;
+		return this.getClass().getSimpleName();
 	}
 }

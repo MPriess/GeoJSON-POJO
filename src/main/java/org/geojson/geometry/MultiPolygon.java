@@ -3,12 +3,12 @@ package org.geojson.geometry;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MultiPolygon implements Geometry {
+public class MultiPolygon extends Geometry {
 	
-	private String type = "MultiPolygon";
 	private List<Polygon> coordinates;
 	
 	public MultiPolygon(List<Polygon> coordinates) {
+		super(MultiPolygon.class.getSimpleName());
 		this.coordinates = coordinates;
 	}
 	
@@ -21,6 +21,6 @@ public class MultiPolygon implements Geometry {
 	}
 	
 	public String getType() {
-		return type;
+		return this.getClass().getSimpleName();
 	}
 }

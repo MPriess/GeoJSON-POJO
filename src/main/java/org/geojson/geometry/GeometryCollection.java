@@ -2,20 +2,16 @@ package org.geojson.geometry;
 
 import java.util.List;
 
-public class GeometryCollection implements Geometry {
+public class GeometryCollection extends Geometry {
 	
-	private String type = "GeometryCollection";
 	private List<Geometry> geometry;
 	
 	public GeometryCollection(List<Geometry> geometry) {
+		super(GeometryCollection.class.getSimpleName());
 		this.geometry = geometry;
 	}
 	
 	public List<Geometry> getGeometries() {
 		return geometry;
-	}
-	
-	public String getType() {
-		return type;
 	}
 }

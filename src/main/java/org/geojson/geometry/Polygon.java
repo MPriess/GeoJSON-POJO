@@ -3,12 +3,12 @@ package org.geojson.geometry;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Polygon implements Geometry {
+public class Polygon extends Geometry {
 	
-	private String type = "Polygon";
 	private List<LineString> coordinates;
 	
 	public Polygon(List<LineString> coordinates) {
+		super(Polygon.class.getSimpleName());
 		this.coordinates = coordinates;
 	}
 	
@@ -19,9 +19,5 @@ public class Polygon implements Geometry {
 			polygon.add(lineString.getCoordinates());
 		}
 		return polygon;
-	}
-	
-	public String getType() {
-		return type;
 	}
 }

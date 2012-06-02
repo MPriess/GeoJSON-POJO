@@ -3,12 +3,12 @@ package org.geojson.geometry;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LineString implements Geometry {
+public class LineString extends Geometry {
 	
-	private String type = "LineString";
 	private List<Point> coordinates;
 	
 	public LineString(List<Point> coordinates) {
+		super(LineString.class.getSimpleName());
 		this.coordinates = coordinates;
 	}
 	
@@ -19,9 +19,5 @@ public class LineString implements Geometry {
 		}
 		return doubleArray;
 	}
-	
-	public String getType() {
-		return type;
-	}	
 }
 

@@ -3,12 +3,12 @@ package org.geojson.geometry;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MultiPoint implements Geometry {
+public class MultiPoint extends Geometry {
 	
-	private String type = "MultiPoint";
 	private List<Point> coordinates;
 	
 	public MultiPoint(List<Point> coordinates) {
+		super(MultiPoint.class.getName());
 		this.coordinates = coordinates;
 	}
 	
@@ -21,6 +21,6 @@ public class MultiPoint implements Geometry {
 	}
 	
 	public String getType() {
-		return type;
+		return this.getClass().getSimpleName();
 	}
 }
