@@ -7,8 +7,8 @@
 	<name>geojson-pojo</name>
 
 	<properties>
-		<jackson.version>1.9.10</jackson.version>
-		<junit.version>4.10</junit.version>
+		<jackson.version>1.9.11</jackson.version>
+		<junit.version>4.11</junit.version>
 	</properties>
 
 	<developers>
