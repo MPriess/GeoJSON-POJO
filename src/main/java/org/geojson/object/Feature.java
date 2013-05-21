@@ -4,8 +4,8 @@ import org.geojson.geometry.Geometry;
 
 public class Feature {
 	
-	private String type = "Feature";
-	private Object properties;
+	private final String type = "Feature";
+	private Map<String, String> properties;
 	private Geometry geometry;
 
 	public Feature(Geometry geometry) {
@@ -20,11 +20,11 @@ public class Feature {
 		return geometry;
 	}
 	
-	public Object getProperties() {
+	public Map<String, String> getProperties() {
 		return properties;
 	}
 	
-	public void setProperties(Object properties) {
+	public void setProperties(Map<String, String> properties) {
 		this.properties = properties;
 	}
 }
