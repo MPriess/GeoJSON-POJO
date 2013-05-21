@@ -26,4 +26,5 @@ Polygon
 ------
 <img src="http://mpriess.com/images/blog/polygon.png" />
 
-See JUnit Test.
+
+This project is ![Built and tested on CloudBees](http://static-www.cloudbees.com/images/badges/CBbadge_builton_125.png) . The public CI instance is available at [mpriess.ci.cloudbees.com](https://mpriess.ci.cloudbees.com/).
