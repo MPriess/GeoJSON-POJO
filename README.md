@@ -1,6 +1,3 @@
-[![Dependency Status](https://www.versioneye.com/user/projects/50466efa9a9d4a0002001162/badge.png)](https://www.versioneye.com/user/projects/50466efa9a9d4a0002001162)
-
-
 GeoJSON-POJO
 ==================
 Simple POJO implementation of GeoJSON Format Specification 1.0.
@@ -30,4 +27,4 @@ Polygon
 <img src="http://mpriess.com/images/blog/polygon.png" />
 
 
-This project is ![Built and tested on CloudBees](http://static-www.cloudbees.com/images/badges/CBbadge_builton_125.png) . The public CI instance is available at [mpriess.ci.cloudbees.com](https://mpriess.ci.cloudbees.com/).
+[![Dependency Status](https://www.versioneye.com/user/projects/50466efa9a9d4a0002001162/badge.png)](https://www.versioneye.com/user/projects/50466efa9a9d4a0002001162)
