@@ -1,3 +1,6 @@
+[![Dependency Status](https://www.versioneye.com/user/projects/50466efa9a9d4a0002001162#dialog_dependency_badge)](https://www.versioneye.com/user/projects/50466efa9a9d4a0002001162)
+
+
 GeoJSON-POJO
 ==================
 Simple POJO implementation of GeoJSON Format Specification 1.0.
