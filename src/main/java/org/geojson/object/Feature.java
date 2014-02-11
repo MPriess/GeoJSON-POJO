@@ -1,5 +1,6 @@
 package org.geojson.object;
 
+import java.util.Map;
 import org.geojson.geometry.Geometry;
 
 public class Feature {
