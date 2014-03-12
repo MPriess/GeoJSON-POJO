@@ -1,5 +1,6 @@
 package org.geojson.object;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -214,7 +215,7 @@ public class FeatureCollectionTest {
 
 		Geometry geometry1 = new Point(38.7471494, -122.1298241);
 		Feature feature1 = new Feature(geometry1);
-		Map<String, String> properties = new HashMap<String, String>();
+		Map<String, Serializable> properties = new HashMap<String, Serializable>();
 		properties.put("popupContent", "Hi!");
 		feature1.setProperties(properties);
 
@@ -222,7 +223,7 @@ public class FeatureCollectionTest {
 
 		Geometry geometry2 = new Point(38.1502833, -122.1283545);
 		Feature feature2 = new IdentifiedFeature(geometry2, "Something");
-		Map<String, String> properties2 = new HashMap<String, String>();
+		Map<String, Serializable> properties2 = new HashMap<String, Serializable>();
 		properties2.put("popupContent", "I am Something.");
 		feature2.setProperties(properties2);
 		
