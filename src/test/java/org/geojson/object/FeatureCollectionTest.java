@@ -1,7 +1,10 @@
 package org.geojson.object;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import junit.framework.Assert;
 
@@ -204,4 +207,34 @@ public class FeatureCollectionTest {
 		String expected = "{\"type\":\"GeometryCollection\",\"geometries\":[{\"type\":\"Point\",\"coordinates\":[100.0,0.0]},{\"type\":\"LineString\",\"coordinates\":[[101.0,0.0],[102.0,1.0]]}]}";
 		Assert.assertEquals(expected, result);
 	}
+
+	@Test
+	public void testFeatureCollection() throws Exception {
+
+		List<Feature> features = new ArrayList<Feature>();
+
+		Geometry geometry1 = new Point(38.7471494, -122.1298241);
+		Feature feature1 = new Feature(geometry1);
+		Map<String, Serializable> properties = new HashMap<String, Serializable>();
+		properties.put("popupContent", "Hi!");
+		feature1.setProperties(properties);
+
+		features.add(feature1);
+
+		Geometry geometry2 = new Point(38.1502833, -122.1283545);
+		Feature feature2 = new IdentifiedFeature(geometry2, "Something");
+		Map<String, Serializable> properties2 = new HashMap<String, Serializable>();
+		properties2.put("popupContent", "I am Something.");
+		feature2.setProperties(properties2);
+		
+		features.add(feature2);
+
+		FeatureCollection featureCollection = new FeatureCollection(features);
+
+
+		String result = mapper.writeValueAsString(featureCollection);
+		String expected = "{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"properties\":{\"popupContent\":\"Hi!\"},\"geometry\":{\"type\":\"Point\",\"coordinates\":[38.7471494,-122.1298241]}},{\"type\":\"Feature\",\"properties\":{\"popupContent\":\"I am Something.\"},\"geometry\":{\"type\":\"Point\",\"coordinates\":[38.1502833,-122.1283545]},\"id\":\"Something\"}]}";
+		Assert.assertEquals(expected, result);
+	}
+
 }
