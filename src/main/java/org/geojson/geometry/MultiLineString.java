@@ -5,21 +5,28 @@ import java.util.List;
 
 public class MultiLineString extends Geometry {
 	
-	private List<LineString> coordinates;
+	private List<List<double[]>> coordinates;
+
+	public MultiLineString() {
+		super( null );
+	}
 	
 	public MultiLineString(List<LineString> coordinates) {
 		super(MultiLineString.class.getSimpleName());
-		this.coordinates = coordinates;
+		if ( coordinates != null ) {
+			this.coordinates = new ArrayList<List<double[]>>();
+			
+			for ( LineString coordinate : coordinates ) {
+				this.coordinates.add( coordinate.getCoordinates() );
+			}
+		}
 	}
 	
 	public List<List<double[]>> getCoordinates() {
-		List<List<double[]>> multiLineString = new ArrayList<List<double[]>>();
-		for (LineString coordinate : coordinates) {
-			multiLineString.add(coordinate.getCoordinates());
-		}
-		return multiLineString;
+		return coordinates;
 	}
 	
+	@Override
 	public String getType() {
 		return this.getClass().getSimpleName();
 	}

@@ -6,6 +6,9 @@ public class FeatureCollection {
 	
 	private final String type = "FeatureCollection";
 	private List<Feature> features;
+
+	public FeatureCollection() {
+	}
 	
 	public FeatureCollection(List<Feature> features) {
 		this.features = features;

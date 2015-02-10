@@ -5,19 +5,25 @@ import java.util.List;
 
 public class Polygon extends Geometry {
 	
-	private List<LineString> coordinates;
+	private List<List<double[]>> coordinates;
+
+	public Polygon() {
+		super(Polygon.class.getSimpleName());
+	}
 	
 	public Polygon(List<LineString> coordinates) {
 		super(Polygon.class.getSimpleName());
-		this.coordinates = coordinates;
+		if ( coordinates != null ) {
+			this.coordinates = new ArrayList<List<double[]>>();
+			for ( LineString coordinate : coordinates ) {
+				this.coordinates.add( coordinate.getCoordinates() );
+			}
+		}
+		
 	}
 	
 	// Should throw is not a polygon exception
 	public List<List<double[]>> getCoordinates() {
-		List<List<double[]>> polygon = new ArrayList<List<double[]>>();
-		for (LineString lineString : coordinates) {
-			polygon.add(lineString.getCoordinates());
-		}
-		return polygon;
+		return coordinates;
 	}
 }

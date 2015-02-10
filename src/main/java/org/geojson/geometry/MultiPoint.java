@@ -5,21 +5,29 @@ import java.util.List;
 
 public class MultiPoint extends Geometry {
 	
-	private List<Point> coordinates;
+	private List<double[]> coordinates;
+
+	public MultiPoint() {
+		super(MultiPoint.class.getName());
+	}
 	
 	public MultiPoint(List<Point> coordinates) {
 		super(MultiPoint.class.getName());
-		this.coordinates = coordinates;
+		
+		if ( coordinates != null ) {
+			this.coordinates = new ArrayList<double[]>();
+			
+			for ( Point coordinate : coordinates ) {
+				this.coordinates.add( coordinate.getCoordinates() );
+			}
+		}
 	}
 	
 	public List<double[]> getCoordinates() {
-		List<double[]> points = new ArrayList<double[]>();
-		for (Point point : coordinates) {
-			points.add(point.getCoordinates());
-		}
-		return points;
+		return coordinates;
 	}
 	
+	@Override
 	public String getType() {
 		return this.getClass().getSimpleName();
 	}

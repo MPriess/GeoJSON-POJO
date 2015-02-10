@@ -1,10 +1,14 @@
 package org.geojson.geometry;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Geometry {
 	
-	private String type;
-	
-	public Geometry(String type) {
+	protected final String type;
+
+	@JsonCreator
+	public Geometry(@JsonProperty("type") String type) {
 		this.type = type;
 	}
 	

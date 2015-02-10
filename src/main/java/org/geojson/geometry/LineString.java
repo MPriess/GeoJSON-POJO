@@ -5,19 +5,27 @@ import java.util.List;
 
 public class LineString extends Geometry {
 	
-	private List<Point> coordinates;
+	private List<double[]> coordinates;
+
+	public LineString() {
+		super( LineString.class.getSimpleName() );
+	}
 	
 	public LineString(List<Point> coordinates) {
 		super(LineString.class.getSimpleName());
-		this.coordinates = coordinates;
+		if ( coordinates != null ) {
+			this.coordinates = new ArrayList<double[]>();
+			
+			for ( Point point : coordinates ) {
+				this.coordinates.add( point.getCoordinates() );
+			}
+		}
+		
 	}
 	
 	public List<double[]> getCoordinates() {
-		List<double[]> doubleArray = new ArrayList<double[]>();
-		for (Point coords: coordinates) {
-			doubleArray.add(coords.getCoordinates());
-		}
-		return doubleArray;
+		return coordinates;
 	}
+	
 }
 

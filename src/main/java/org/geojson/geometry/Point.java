@@ -3,6 +3,10 @@ package org.geojson.geometry;
 public class Point extends Geometry {
 	
 	private double[] coordinates;
+
+	public Point() {
+		super(Point.class.getSimpleName());
+	}
 	
 	public Point(double longtitude, double latitude) {		
 		super(Point.class.getSimpleName());
@@ -24,4 +28,7 @@ public class Point extends Geometry {
 	public double[] getCoordinates() {
 		return coordinates;
 	}
+
+	
+	
 }

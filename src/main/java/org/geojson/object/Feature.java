@@ -10,6 +10,9 @@ public class Feature {
 	private Map<String, Serializable> properties;
 	private Geometry geometry;
 
+	public Feature() {
+	}
+
 	public Feature(Geometry geometry) {
 		this.geometry = geometry;
 	}
