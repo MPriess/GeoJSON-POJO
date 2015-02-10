@@ -1,13 +1,12 @@
 package org.geojson.object;
 
-import java.io.Serializable;
 import java.util.Map;
 import org.geojson.geometry.Geometry;
 
 public class Feature {
 	
 	private final String type = "Feature";
-	private Map<String, Serializable> properties;
+	private Map<String, String> properties;
 	private Geometry geometry;
 
 	public Feature() {
@@ -25,11 +24,11 @@ public class Feature {
 		return geometry;
 	}
 	
-	public Map<String, Serializable> getProperties() {
+	public Map<String, String> getProperties() {
 		return properties;
 	}
 	
-	public void setProperties(Map<String, Serializable> properties) {
+	public void setProperties(Map<String, String> properties) {
 		this.properties = properties;
 	}
 }

@@ -1,8 +1,10 @@
 package org.geojson.geometry;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.ArrayList;
 import java.util.List;
 
+@JsonTypeName("LineString")
 public class LineString extends Geometry {
 	
 	private List<double[]> coordinates;

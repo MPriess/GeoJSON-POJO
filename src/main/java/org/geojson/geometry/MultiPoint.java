@@ -1,8 +1,10 @@
 package org.geojson.geometry;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.ArrayList;
 import java.util.List;
 
+@JsonTypeName("MultiPoint")
 public class MultiPoint extends Geometry {
 	
 	private List<double[]> coordinates;

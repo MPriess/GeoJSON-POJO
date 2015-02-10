@@ -1,8 +1,10 @@
 package org.geojson.geometry;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.ArrayList;
 import java.util.List;
 
+@JsonTypeName("MultiPolygon")
 public class MultiPolygon extends Geometry {
 	
 	private List<List<List<double[]>>> coordinates;
