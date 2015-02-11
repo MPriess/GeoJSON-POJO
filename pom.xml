@@ -9,6 +9,8 @@
 	<properties>
 		<jackson.version>1.9.13</jackson.version>
 		<junit.version>4.11</junit.version>
+	 <maven.compiler.source>1.7</maven.compiler.source>
+	 <maven.compiler.target>1.7</maven.compiler.target>
 	</properties>
 
 	<developers>
@@ -17,6 +19,14 @@
 			<name>Michael Priess</name>
 			<timezone>+2</timezone>
 			<url>http://mpriess.com</url>
+		</developer>
+		<developer>
+			<email>kosgei.kenny@gmail.com</email>
+			<id>kosgeinsky</id>
+			<name>Kenny Kosgei</name>
+			<roles>
+				<role>Contributor</role>
+			</roles>
 		</developer>
 	</developers>
 
