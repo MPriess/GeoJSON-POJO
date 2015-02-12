@@ -19,7 +19,7 @@ public class Polygon extends Geometry {
 			}
 		}
 		
-		setType( Polygon.class.getSimpleName() );
+//		setType( Polygon.class.getSimpleName() );
 		
 	}
 	
@@ -27,4 +27,11 @@ public class Polygon extends Geometry {
 	public List<List<double[]>> getCoordinates() {
 		return coordinates;
 	}
+
+	@Override
+	public String getType() {
+		return Polygon.class.getSimpleName();
+	}
+	
+	
 }

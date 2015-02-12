@@ -1,16 +1,14 @@
 package org.geojson.geometry;
 
-import org.codehaus.jackson.annotate.JsonTypeInfo;
-import org.codehaus.jackson.annotate.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 
 @JsonTypeName("Point")
-@JsonTypeInfo(use = JsonTypeInfo.Id.NONE, include = JsonTypeInfo.As.PROPERTY, property = "type")
 public class Point extends Geometry {
 	
 	private double[] coordinates;
 
 	public Point() {
-
+//		setType( Point.class.getSimpleName() );
 	}
 	
 	public Point(double longtitude, double latitude) {		
@@ -18,7 +16,7 @@ public class Point extends Geometry {
 		coordinates[0] = longtitude;
 		coordinates[1] = latitude;
 		
-		setType( Point.class.getSimpleName() );
+//		setType( Point.class.getSimpleName() );
 	}
 
 	public Point(double longtitude, double latitude, double altitude) {
@@ -27,7 +25,7 @@ public class Point extends Geometry {
 		coordinates[1] = latitude;
 		coordinates[2] = latitude;
 		
-		setType( Point.class.getSimpleName() );
+//		setType( Point.class.getSimpleName() );
 	}
 
 	public double[] getCoordinates() {
@@ -36,6 +34,11 @@ public class Point extends Geometry {
 
 	public void setCoordinates( double[] coordinates ) {
 		this.coordinates = coordinates;
+	}
+
+	@Override
+	public String getType() {
+		return Point.class.getSimpleName();
 	}
 
 	

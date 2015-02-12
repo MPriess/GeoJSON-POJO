@@ -1,8 +1,8 @@
 package org.geojson.geometry;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.ArrayList;
 import java.util.List;
-import org.codehaus.jackson.annotate.JsonTypeName;
 
 @JsonTypeName("LineString")
 public class LineString extends Geometry {
@@ -23,12 +23,17 @@ public class LineString extends Geometry {
 			}
 		}
 		
-		setType( LineString.class.getSimpleName() );
+//		setType( LineString.class.getSimpleName() );
 		
 	}
 	
 	public List<double[]> getCoordinates() {
 		return coordinates;
+	}
+
+	@Override
+	public String getType() {
+		return LineString.class.getSimpleName();
 	}
 	
 }

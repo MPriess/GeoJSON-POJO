@@ -2,6 +2,7 @@ package org.geojson.object;
 
 import java.util.List;
 
+
 public class FeatureCollection {
 	
 	private final String type = "FeatureCollection";
@@ -17,8 +18,12 @@ public class FeatureCollection {
 	public String getType() {
 		return this.type;
 	}
-	
-	public Feature[] getFeatures() {
-		return features.toArray(new Feature[0]);
+
+	public List<Feature> getFeatures() {
+		return features;
+	}
+
+	public void setFeatures( List<Feature> features ) {
+		this.features = features;
 	}
 }

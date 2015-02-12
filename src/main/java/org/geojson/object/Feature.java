@@ -1,8 +1,10 @@
 package org.geojson.object;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Map;
 import org.geojson.geometry.Geometry;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Feature {
 	
 	private final String type = "Feature";

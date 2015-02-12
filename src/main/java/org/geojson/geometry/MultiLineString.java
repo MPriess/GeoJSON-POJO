@@ -20,7 +20,7 @@ public class MultiLineString extends Geometry {
 			}
 		}
 		
-		setType( MultiLineString.class.getSimpleName() );
+//		setType( MultiLineString.class.getSimpleName() );
 	}
 	
 	public List<List<double[]>> getCoordinates() {
@@ -30,4 +30,11 @@ public class MultiLineString extends Geometry {
 	public void setCoordinates( List<List<double[]>> coordinates ) {
 		this.coordinates = coordinates;
 	}
+
+	@Override
+	public String getType() {
+		return MultiLineString.class.getSimpleName(); 
+	}
+	
+	
 }

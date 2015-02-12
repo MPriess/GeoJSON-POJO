@@ -20,7 +20,7 @@ public class MultiPoint extends Geometry {
 			}
 		}
 		
-		setType( MultiPoint.class.getSimpleName() );
+//		setType( MultiPoint.class.getSimpleName() );
 	}
 	
 	public List<double[]> getCoordinates() {
@@ -30,5 +30,12 @@ public class MultiPoint extends Geometry {
 	public void setCoordinates( List<double[]> coordinates ) {
 		this.coordinates = coordinates;
 	}
+
+	@Override
+	public String getType() {
+		return MultiPoint.class.getSimpleName(); 
+	}
+	
+	
 	
 }

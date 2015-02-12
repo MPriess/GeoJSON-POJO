@@ -1,8 +1,10 @@
 package org.geojson.geometry;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.ArrayList;
 import java.util.List;
 
+@JsonTypeName("MultiPolygon")
 public class MultiPolygon extends Geometry {
 	
 	private List<List<List<double[]>>> coordinates;
@@ -20,7 +22,7 @@ public class MultiPolygon extends Geometry {
 			}
 		}
 		
-		setType( MultiPolygon.class.getSimpleName() );
+//		setType( MultiPolygon.class.getSimpleName() );
 		
 	}
 	
@@ -31,5 +33,12 @@ public class MultiPolygon extends Geometry {
 	public void setCoordinates( List<List<List<double[]>>> coordinates ) {
 		this.coordinates = coordinates;
 	}
+
+	@Override
+	public String getType() {
+		return MultiPolygon.class.getSimpleName();
+	}
+	
+	
 	
 }
