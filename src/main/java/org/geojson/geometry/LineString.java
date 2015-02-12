@@ -6,34 +6,27 @@ import java.util.List;
 
 @JsonTypeName("LineString")
 public class LineString extends Geometry {
-	
+
 	private List<double[]> coordinates;
 
 	public LineString() {
-
+		super(LineString.class.getSimpleName());
 	}
-	
+
 	public LineString(List<Point> coordinates) {
-		
-		if ( coordinates != null ) {
+		this();
+		if (coordinates != null) {
 			this.coordinates = new ArrayList<>();
-			
-			for ( Point point : coordinates ) {
-				this.coordinates.add( point.getCoordinates() );
+
+			for (Point point : coordinates) {
+				this.coordinates.add(point.getCoordinates());
 			}
 		}
-		
-//		setType( LineString.class.getSimpleName() );
-		
+
 	}
-	
+
 	public List<double[]> getCoordinates() {
 		return coordinates;
 	}
 
-	@Override
-	public String getType() {
-		return LineString.class.getSimpleName();
-	}
-	
 }

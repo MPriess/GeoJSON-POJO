@@ -1,28 +1,30 @@
 package org.geojson.geometry;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.ArrayList;
 import java.util.List;
 
+@JsonTypeName("Polygon")
 public class Polygon extends Geometry {
-	
+
 	private List<List<double[]>> coordinates;
 
 	public Polygon() {
-
+		super(Polygon.class.getSimpleName());
 	}
-	
+
 	public Polygon(List<LineString> coordinates) {
-		if ( coordinates != null ) {
+		this();
+
+		if (coordinates != null) {
 			this.coordinates = new ArrayList<>();
-			for ( LineString coordinate : coordinates ) {
-				this.coordinates.add( coordinate.getCoordinates() );
+			for (LineString coordinate : coordinates) {
+				this.coordinates.add(coordinate.getCoordinates());
 			}
 		}
-		
-//		setType( Polygon.class.getSimpleName() );
-		
+
 	}
-	
+
 	// Should throw is not a polygon exception
 	public List<List<double[]>> getCoordinates() {
 		return coordinates;
@@ -32,6 +34,5 @@ public class Polygon extends Geometry {
 	public String getType() {
 		return Polygon.class.getSimpleName();
 	}
-	
-	
+
 }
