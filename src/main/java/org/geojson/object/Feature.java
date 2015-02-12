@@ -23,6 +23,10 @@ public class Feature {
 	public Geometry getGeometry() {
 		return geometry;
 	}
+
+	public void setGeometry( Geometry geometry ) {
+		this.geometry = geometry;
+	}
 	
 	public Map<String, String> getProperties() {
 		return properties;

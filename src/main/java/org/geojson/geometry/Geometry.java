@@ -1,12 +1,12 @@
 package org.geojson.geometry;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import org.codehaus.jackson.annotate.JsonSubTypes;
+import org.codehaus.jackson.annotate.JsonSubTypes.Type;
+import org.codehaus.jackson.annotate.JsonTypeInfo;
 
-@JsonTypeInfo(use = JsonTypeInfo.Id.CLASS, include = JsonTypeInfo.As.WRAPPER_OBJECT, property = "@Class")
+
+
+@JsonTypeInfo(use = JsonTypeInfo.Id.NONE, include = JsonTypeInfo.As.WRAPPER_OBJECT, property = "objectType")
 @JsonSubTypes({ @Type(value = Point.class, name = "Point"),
 		@Type(value = MultiPoint.class, name = "MultiPoint"),
 		@Type(value = LineString.class, name = "LineString"),
@@ -14,19 +14,17 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 		@Type(value = Polygon.class, name = "Polygon"),
 		@Type(value = MultiPolygon.class, name = "MultiPolygon"),
 		@Type(value = GeometryCollection.class, name = "GeometryCollection") })
-public class Geometry {
+public abstract class Geometry {
 
 	protected String type;
 
-	public Geometry() {
-	}
-
-	@JsonCreator
-	public Geometry( @JsonProperty("type") String type ) {
-		this.type = type;
-	}
 
 	public String getType() {
 		return type;
 	}
+
+	public void setType( String type ) {
+		this.type = type;
+	}
+	
 }

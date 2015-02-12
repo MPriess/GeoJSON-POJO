@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.geojson</groupId>
 	<artifactId>geojson-pojo</artifactId>
@@ -9,8 +9,8 @@
 	<properties>
 		<jackson.version>1.9.13</jackson.version>
 		<junit.version>4.11</junit.version>
-	 <maven.compiler.source>1.7</maven.compiler.source>
-	 <maven.compiler.target>1.7</maven.compiler.target>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
 	</properties>
 
 	<developers>
@@ -44,10 +44,16 @@
 			<type>jar</type>
 		</dependency>
 		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-core-asl</artifactId>
+			<version>${jackson.version}</version>
+			<type>jar</type>
+		</dependency>
+		<!--		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-annotations</artifactId>
 			<version>2.1.1</version>
 			<type>jar</type>
-		</dependency>
+		</dependency>-->
 	</dependencies>
 </project>

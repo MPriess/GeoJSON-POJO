@@ -1,7 +1,7 @@
 package org.geojson.geometry;
 
-import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
+import org.codehaus.jackson.annotate.JsonTypeName;
 
 @JsonTypeName("GeometryCollection")
 public class GeometryCollection extends Geometry {
@@ -9,12 +9,12 @@ public class GeometryCollection extends Geometry {
 	private List<Geometry> geometries;
 	
 	public GeometryCollection() {
-		super(GeometryCollection.class.getSimpleName());
+		
 	}
 	
 	public GeometryCollection(List<Geometry> geometry) {
-		this();
 		this.geometries = geometry;
+		setType( GeometryCollection.class.getSimpleName() );
 	}
 	
 	public List<Geometry> getGeometries() {

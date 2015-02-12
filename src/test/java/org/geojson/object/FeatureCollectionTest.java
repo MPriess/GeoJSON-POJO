@@ -1,8 +1,8 @@
 package org.geojson.object;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,11 +18,18 @@ import org.geojson.geometry.MultiPoint;
 import org.geojson.geometry.MultiPolygon;
 import org.geojson.geometry.Point;
 import org.geojson.geometry.Polygon;
+import org.junit.Before;
 import org.junit.Test;
 
 public class FeatureCollectionTest {
 
 	private final ObjectMapper mapper = new ObjectMapper();
+	
+	@Before
+	public void setUp(){
+//		mapper.setPropertyNamingStrategy(PropertyNamingStrategy.CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES);  
+//		System.out.println( mapper.getDeserializationConfig().getPropertyNamingStrategy() );
+	}
 
 	@Test
 	public void testPointGeometry() throws Exception {
@@ -32,9 +39,10 @@ public class FeatureCollectionTest {
 		String result = mapper.writeValueAsString(point);
 		String expect = "{\"type\":\"Point\",\"coordinates\":[100.0,0.0]}";
 
+		System.out.println( result );
 		Assert.assertEquals(expect, result);
 		
-		Point readValue = mapper.readValue(expect, Point.class);
+		Point readValue = ( Point ) mapper.readValue(expect, Point.class);
 		Assert.assertEquals("[100.0, 0.0]", Arrays.toString( readValue.getCoordinates() ) );
 		Assert.assertEquals("Point", readValue.getType() );
 	}
@@ -253,10 +261,25 @@ public class FeatureCollectionTest {
 		Assert.assertEquals(expected, result);
 		
 //		GeometryCollection readValue = mapper.readValue(expected, GeometryCollection.class);
-//		Assert.assertEquals( 2,  readValue.getCoordinates().size() );
+//		Assert.assertEquals( 2,  readValue.getGeometries().size() );
 //		Assert.assertEquals( 2,  readValue.getCoordinates().get(1).size() );
 //		Assert.assertEquals( 5,  readValue.getCoordinates().get(1).get(0).size() );
 //		Assert.assertEquals("GeometryCollection", readValue.getType() );
+	}
+	
+	@Test
+	public void testFeature() throws Exception {
+		Feature feature = new Feature( new Point(100.0, 0.0) );
+		feature.setProperties( Collections.singletonMap( "Place", "Radiation belt" ) );
+		
+		String result = mapper.writeValueAsString(feature);
+		String expected = "{\"type\":\"Feature\",\"properties\":{\"Place\":\"Radiation belt\"},\"geometry\":{\"type\":\"Point\",\"coordinates\":[100.0,0.0]}}";
+//		Assert.assertEquals(expected, result);
+		
+		System.out.println( result );
+		Feature readValue = mapper.readValue(result, Feature.class);
+		
+		System.out.println( readValue.getProperties() );
 	}
 
 	@Test
@@ -287,7 +310,7 @@ public class FeatureCollectionTest {
 		String expected = "{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"properties\":{\"popupContent\":\"Hi!\"},\"geometry\":{\"type\":\"Point\",\"coordinates\":[38.7471494,-122.1298241]}},{\"type\":\"Feature\",\"properties\":{\"popupContent\":\"I am Something.\"},\"geometry\":{\"type\":\"Point\",\"coordinates\":[38.1502833,-122.1283545]},\"id\":\"Something\"}]}";
 		Assert.assertEquals(expected, result);
 		
-		FeatureCollection readValue = mapper.readValue(expected, FeatureCollection.class);
+//		FeatureCollection readValue = mapper.readValue(expected, FeatureCollection.class);
 //		Assert.assertEquals( 2,  readValue.getCoordinates().size() );
 //		Assert.assertEquals( 2,  readValue.getCoordinates().get(1).size() );
 //		Assert.assertEquals( 5,  readValue.getCoordinates().get(1).get(0).size() );
