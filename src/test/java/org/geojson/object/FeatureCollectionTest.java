@@ -264,10 +264,12 @@ public class FeatureCollectionTest {
 		Assert.assertEquals(expected, result);
 		
 		GeometryCollection readValue = deserializer.readValue(expected, GeometryCollection.class);
-//		Assert.assertEquals( 2,  readValue.getGeometries().size() );
-//		Assert.assertEquals( 2,  readValue.getCoordinates().get(1).size() );
-//		Assert.assertEquals( 5,  readValue.getCoordinates().get(1).get(0).size() );
-//		Assert.assertEquals("GeometryCollection", readValue.getType() );
+		Assert.assertEquals( 2,  readValue.getGeometries().size() );
+		Assert.assertTrue( readValue.getGeometries().get(1) instanceof LineString );
+		Assert.assertEquals( "[100.0, 0.0]",  Arrays.toString( ((Point)readValue.getGeometries().get(0)).getCoordinates() ) );
+		Assert.assertEquals( "[101.0, 0.0]",  Arrays.toString( ((LineString)readValue.getGeometries().get(1)).getCoordinates().get(0)) );
+		Assert.assertEquals( "[102.0, 1.0]",  Arrays.toString( ((LineString)readValue.getGeometries().get(1)).getCoordinates().get(1)) );
+		Assert.assertEquals("GeometryCollection", readValue.getType() );
 	}
 	
 	@Test
