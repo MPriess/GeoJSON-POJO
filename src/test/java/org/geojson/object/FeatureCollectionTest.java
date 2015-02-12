@@ -42,7 +42,6 @@ public class FeatureCollectionTest {
 		String result = serializer.writeValueAsString(point);
 		String expect = "{\"type\":\"Point\",\"coordinates\":[100.0,0.0]}";
 
-		System.out.println( result );
 		Assert.assertEquals(expect, result);
 		
 		Point readValue = ( Point ) deserializer.readValue(expect, Point.class);
@@ -281,13 +280,11 @@ public class FeatureCollectionTest {
 		String expected = "{\"type\":\"Feature\",\"properties\":{\"Place\":\"Radiation belt\"},\"geometry\":{\"type\":\"Point\",\"coordinates\":[100.0,0.0]}}";
 		Assert.assertEquals(expected, result);
 		
-		System.out.println( result );
 		Feature readValue = deserializer.readValue(result, Feature.class);
 		Assert.assertEquals( "Feature",  readValue.getType() );
 		Assert.assertTrue( "Should be a Point",  readValue.getGeometry() instanceof Point );
 		Assert.assertEquals( "Point",  ((Point)readValue.getGeometry()).getType()  );
 		Assert.assertEquals( "[100.0, 0.0]",  Arrays.toString( ((Point)readValue.getGeometry()).getCoordinates() ));
-		System.out.println( readValue.getProperties() );
 	}
 
 	@Test
