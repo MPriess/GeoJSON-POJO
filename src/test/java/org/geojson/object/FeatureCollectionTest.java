@@ -322,5 +322,44 @@ public class FeatureCollectionTest {
 		Assert.assertEquals( "[38.1502833, -122.1283545]", Arrays.toString( ((Point)readValue.getFeatures().get( 1 ).getGeometry()).getCoordinates() ) );
 		Assert.assertEquals("FeatureCollection", readValue.getType() );
 	}
+	
+	public void testFeatureCollectionDeserializeFeatureWithJsonOrStringProperties() throws Exception {
+		String input = "{ \"type\": \"FeatureCollection\",\n" + "    \"features\": [\n"
+				+ "      { \"type\": \"Feature\",\n"
+				+ "        \"geometry\": {\"type\": \"Point\", \"coordinates\": [102.0, 0.5]},\n"
+				+ "        \"properties\": {\"prop0\": \"value0\"}\n" + "        },\n"
+				+ "      { \"type\": \"Feature\",\n" + "        \"geometry\": {\n"
+				+ "          \"type\": \"LineString\",\n" + "          \"coordinates\": [\n"
+				+ "            [102.0, 0.0], [103.0, 1.0], [104.0, 0.0], [105.0, 1.0]\n"
+				+ "            ]\n" + "          },\n" + "        \"properties\": {\n"
+				+ "          \"prop0\": \"value0\",\n" + "          \"prop1\": 0.0\n" + "          }\n"
+				+ "        },\n" + "      { \"type\": \"Feature\",\n" + "         \"geometry\": {\n"
+				+ "           \"type\": \"Polygon\",\n" + "           \"coordinates\": [\n"
+				+ "             [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0],\n"
+				+ "               [100.0, 1.0], [100.0, 0.0] ]\n" + "             ]\n"
+				+ "         },\n" + "         \"properties\": {\n"
+				+ "           \"prop0\": \"value0\",\n"
+				+ "           \"prop1\": {\"this\": \"that\"}\n" + "           }\n" + "         }\n"
+				+ "       ]\n" + " }";
+		
+
+		FeatureCollection readValue = deserializer.readValue( input, FeatureCollection.class );
+		Assert.assertEquals( 3, readValue.getFeatures().size() );
+		Assert.assertTrue( readValue.getFeatures().get( 0 ).getGeometry() instanceof Point );
+		Assert.assertEquals( "[102.0, 0.5]", Arrays.toString( ((Point) readValue
+				.getFeatures().get( 0 ).getGeometry()).getCoordinates() ) );
+		Assert.assertTrue( readValue.getFeatures().get( 1 ).getGeometry() instanceof LineString );
+		Assert.assertEquals( "[102.0, 0.0]", Arrays.toString( ((LineString) readValue
+				.getFeatures().get( 1 ).getGeometry()).getCoordinates().get( 0 )) );
+		Assert.assertEquals( "[103.0, 1.0]", Arrays.toString( ((LineString) readValue
+				.getFeatures().get( 1 ).getGeometry()).getCoordinates().get( 1 )) );
+		Assert.assertEquals( "[104.0, 0.0]", Arrays.toString( ((LineString) readValue
+				.getFeatures().get( 1 ).getGeometry()).getCoordinates().get( 2 )) );
+		Assert.assertTrue( readValue.getFeatures().get( 2 ).getGeometry() instanceof Polygon );
+		Assert.assertEquals( 5, ((Polygon) readValue
+				.getFeatures().get( 2 ).getGeometry()).getCoordinates().get( 0 ).size() );
+		
+		Assert.assertEquals( "FeatureCollection", readValue.getType() );
+	}
 
 }
