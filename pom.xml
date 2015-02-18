@@ -20,15 +20,6 @@
 			<timezone>+2</timezone>
 			<url>http://mpriess.com</url>
 		</developer>
-		<developer>
-			<email>kosgei.kenny@gmail.com</email>
-			<id>kosgeinsky</id>
-			<name>Kenny Kosgei</name>
-			<timezone>+3</timezone>
-			<roles>
-				<role>Contributor</role>
-			</roles>
-		</developer>
 	</developers>
 
 	<dependencies>
@@ -48,7 +39,6 @@
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<version>${jackson.version}</version>
-			<scope>test</scope>
 			<type>jar</type>
 		</dependency>
 	</dependencies>

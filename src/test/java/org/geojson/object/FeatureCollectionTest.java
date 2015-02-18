@@ -1,6 +1,7 @@
 package org.geojson.object;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -274,13 +275,13 @@ public class FeatureCollectionTest {
 	@Test
 	public void testFeature() throws Exception {
 		Feature feature = new Feature( new Point(100.0, 0.0) );
-		feature.setProperties( Collections.singletonMap( "Place", "Radiation belt" ) );
+		feature.setProperties( Collections.<String,Serializable>singletonMap( "Place", "Radiation belt" ) );
 		
 		String result = serializer.writeValueAsString(feature);
 		String expected = "{\"type\":\"Feature\",\"properties\":{\"Place\":\"Radiation belt\"},\"geometry\":{\"type\":\"Point\",\"coordinates\":[100.0,0.0]}}";
 		Assert.assertEquals(expected, result);
 		
-		Feature readValue = deserializer.readValue(result, Feature.class);
+		Feature readValue = deserializer.readValue(expected, Feature.class);
 		Assert.assertEquals( "Feature",  readValue.getType() );
 		Assert.assertTrue( "Should be a Point",  readValue.getGeometry() instanceof Point );
 		Assert.assertEquals( "Point",  ((Point)readValue.getGeometry()).getType()  );
@@ -294,7 +295,7 @@ public class FeatureCollectionTest {
 
 		Geometry geometry1 = new Point(38.7471494, -122.1298241);
 		Feature feature1 = new Feature(geometry1);
-		Map<String, String> properties = new HashMap<>();
+		Map<String, Serializable> properties = new HashMap<>();
 		properties.put("popupContent", "Hi!");
 		feature1.setProperties(properties);
 
@@ -302,7 +303,7 @@ public class FeatureCollectionTest {
 
 		Geometry geometry2 = new Point(38.1502833, -122.1283545);
 		Feature feature2 = new IdentifiedFeature(geometry2, "Something");
-		Map<String, String> properties2 = new HashMap<>();
+		Map<String, Serializable> properties2 = new HashMap<>();
 		properties2.put("popupContent", "I am Something.");
 		feature2.setProperties(properties2);
 		
