@@ -10,6 +10,21 @@ What is GeoJSON?
 GeoJSON is a format for encoding a variety of geographic data structures. A GeoJSON object may represent a geometry,
 a feature, or a collection of features. GeoJSON supports the following geometry types: Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon, and GeometryCollection. Features in GeoJSON contain a geometry object and additional properties, and a feature collection represents a list of features.
 
+Maven
+-------
+Step 1. Add the JitPack repository to your build file 
+<repository>
+  <id>jitpack.io</id>
+  <url>https://jitpack.io</url>
+</repository>
+
+Step 2. Add the dependency to your build file.
+<dependency>
+	<groupId>com.github.MPriess</groupId>
+	<artifactId>GeoJSON-POJO</artifactId>
+  <version>1.0.0</version>
+</dependency>
+
 Example
 -------
 
