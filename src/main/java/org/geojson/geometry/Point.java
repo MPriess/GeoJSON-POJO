@@ -1,27 +1,39 @@
 package org.geojson.geometry;
 
-public class Point extends Geometry {
-	
-	private double[] coordinates;
-	
-	public Point(double longtitude, double latitude) {		
-		super(Point.class.getSimpleName());
+import com.fasterxml.jackson.annotation.JsonTypeName;
 
+@JsonTypeName("Point")
+public class Point extends Geometry {
+
+	private double[] coordinates;
+
+	public Point() {
+		super(Point.class.getSimpleName());
+	}
+
+	public Point(double longtitude, double latitude) {
+		this();
 		coordinates = new double[2];
 		coordinates[0] = longtitude;
 		coordinates[1] = latitude;
+
 	}
 
 	public Point(double longtitude, double latitude, double altitude) {
-		super(Point.class.getSimpleName());
-
+		this();
 		coordinates = new double[3];
 		coordinates[0] = longtitude;
 		coordinates[1] = latitude;
 		coordinates[2] = latitude;
+
 	}
 
 	public double[] getCoordinates() {
 		return coordinates;
 	}
+
+	public void setCoordinates(double[] coordinates) {
+		this.coordinates = coordinates;
+	}
+
 }

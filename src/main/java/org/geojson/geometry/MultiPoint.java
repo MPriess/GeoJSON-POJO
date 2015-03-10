@@ -1,26 +1,36 @@
 package org.geojson.geometry;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.ArrayList;
 import java.util.List;
 
+@JsonTypeName("MultiPoint")
 public class MultiPoint extends Geometry {
-	
-	private List<Point> coordinates;
-	
+
+	private List<double[]> coordinates;
+
+	public MultiPoint() {
+		super(MultiPoint.class.getSimpleName());
+	}
+
 	public MultiPoint(List<Point> coordinates) {
-		super(MultiPoint.class.getName());
+		this();
+		if (coordinates != null) {
+			this.coordinates = new ArrayList<>();
+
+			for (Point coordinate : coordinates) {
+				this.coordinates.add(coordinate.getCoordinates());
+			}
+		}
+
+	}
+
+	public List<double[]> getCoordinates() {
+		return coordinates;
+	}
+
+	public void setCoordinates(List<double[]> coordinates) {
 		this.coordinates = coordinates;
 	}
-	
-	public List<double[]> getCoordinates() {
-		List<double[]> points = new ArrayList<double[]>();
-		for (Point point : coordinates) {
-			points.add(point.getCoordinates());
-		}
-		return points;
-	}
-	
-	public String getType() {
-		return this.getClass().getSimpleName();
-	}
+
 }
