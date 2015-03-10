@@ -13,17 +13,22 @@ a feature, or a collection of features. GeoJSON supports the following geometry 
 Maven
 -------
 Step 1. Add the JitPack repository to your build file 
+
+```xml
 <repository>
   <id>jitpack.io</id>
   <url>https://jitpack.io</url>
 </repository>
+```
 
 Step 2. Add the dependency to your build file.
+```xml
 <dependency>
-	<groupId>com.github.MPriess</groupId>
-	<artifactId>GeoJSON-POJO</artifactId>
+  <groupId>com.github.MPriess</groupId>
+  <artifactId>GeoJSON-POJO</artifactId>
   <version>1.0.0</version>
 </dependency>
+```
 
 Example
 -------
