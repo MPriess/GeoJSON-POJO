@@ -26,7 +26,7 @@ Step 2. Add the dependency to your build file.
 <dependency>
   <groupId>com.github.MPriess</groupId>
   <artifactId>GeoJSON-POJO</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
 </dependency>
 ```
 
