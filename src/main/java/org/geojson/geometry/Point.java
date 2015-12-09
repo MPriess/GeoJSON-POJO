@@ -24,7 +24,7 @@ public class Point extends Geometry {
 		coordinates = new double[3];
 		coordinates[0] = longtitude;
 		coordinates[1] = latitude;
-		coordinates[2] = latitude;
+		coordinates[2] = altitude;
 
 	}
 
